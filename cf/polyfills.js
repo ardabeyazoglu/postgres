@@ -48,24 +48,24 @@ export const crypto = {
   createHash: type => ({
     update: x => ({
       digest: encoding => {
-        if (!(x instanceof Uint8Array)) {
+        if (!(x instanceof Uint8Array))
           x = textEncoder.encode(x)
-        }
+
         let prom
-        if (type === 'sha256') {
+        if (type === 'sha256')
           prom = Crypto.subtle.digest('SHA-256', x)
-        } else if (type === 'md5') {
+        else if (type === 'md5')
           prom = Crypto.subtle.digest('md5', x)
-        } else {
+        else
           throw Error('createHash only supports sha256 or md5 in this environment, not ${type}.')
-        }
-        if (encoding === 'hex') {
+
+        if (encoding === 'hex')
           return prom.then((arrayBuf) => Buffer.from(arrayBuf).toString('hex'))
-        } else if (encoding) {
+        else if (encoding)
           throw Error(`createHash only supports hex encoding or unencoded in this environment, not ${encoding}`)
-        } else {
+        else
           return prom
-        }
+
       }
     })
   }),
