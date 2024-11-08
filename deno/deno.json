@@ -1,0 +1,5 @@
+{
+  "name": "@ardabeyazoglu/postgresjs-patched",
+  "version": "3.4.5",
+  "exports": "./mod.js"
+}
