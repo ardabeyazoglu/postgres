@@ -1,5 +1,5 @@
 {
-  "name": "postgres",
+  "name": "postgresjs-patched",
   "version": "3.4.5",
   "description": "Fastest full featured PostgreSQL client for Node.js",
   "type": "module",
