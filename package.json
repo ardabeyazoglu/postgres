@@ -30,6 +30,9 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint"
   },
+  "devDependencies": {
+    "eslint": "^8"
+  },
   "files": [
     "/cf/src",
     "/cf/polyfills.js",
