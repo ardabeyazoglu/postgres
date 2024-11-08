@@ -8,7 +8,7 @@ const crypto = require('crypto')
 const postgres = require('../src/index.js')
 const delay = ms => new Promise(r => setTimeout(r, ms))
 
-const rel = x => require('path').join(__dirname, x)
+const rel = x => require("path").join(__dirname, x)
 const idle_timeout = 1
 
 const login = {

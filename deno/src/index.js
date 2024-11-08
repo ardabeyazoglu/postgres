@@ -457,7 +457,7 @@ function parseOptions(a, b) {
   }
 
   return {
-    host            : Array.isArray(host) ? host : host.split(',').map(x => new URL('s://' + x).hostname.replace(/[\[\]]/g, '')),
+    host            : Array.isArray(host) ? host : host.split(',').map(x => new URL('s://' + x).hostname.replace(/[[\]]/g, '')),
     port            : Array.isArray(port) ? port : host.split(',').map(x => parseInt(new URL('s://' + x).port || port)),
     path            : o.path || host.indexOf('/') > -1 && host + '/.s.PGSQL.' + port,
     database        : o.database || o.db || (url.pathname || '').slice(1) || env.PGDATABASE || user,
