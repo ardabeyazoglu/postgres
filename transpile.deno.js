@@ -23,7 +23,7 @@ fs.writeFileSync(
     .replace(/### Installation[\s\S]*?(?=\n##)/m, '')
     .replace(
       'import postgres from \'postgres\'',
-      'import postgres from \'https://deno.land/x/postgresjs/mod.js\''
+      'import postgres from \'https://jsr.io/@ardabeyazoglu/postgresjs-patched\''
     )
 )
 
