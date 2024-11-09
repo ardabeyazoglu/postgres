@@ -15,7 +15,7 @@
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "scripts": {
     "build": "npm run build:cjs && npm run build:deno && npm run build:cf",
@@ -42,14 +42,10 @@
     "/types"
   ],
   "author": "Rasmus Porsager <rasmus@porsager.com> (https://www.porsager.com)",
-  "funding": {
-    "type": "individual",
-    "url": "https://github.com/sponsors/porsager"
-  },
   "license": "Unlicense",
-  "repository": "porsager/postgres",
-  "homepage": "https://github.com/porsager/postgres",
-  "bugs": "https://github.com/porsager/postgres/issues",
+  "repository": "ardabeyazoglu/postgres",
+  "homepage": "https://github.com/ardabeyazoglu/postgres",
+  "bugs": "https://github.com/ardabeyazoglu/postgres/issues",
   "keywords": [
     "driver",
     "postgresql",
