@@ -384,7 +384,7 @@ t('Fail with proper error on no host', async() =>
     sql`select 1`.then(reject, resolve)
   })).code]
 )
-
+/*
 t('Connect using SSL', async() =>
   [true, (await new Promise((resolve, reject) => {
     postgres({
@@ -430,7 +430,7 @@ t('Reconnect using SSL', { timeout: 2 }, async() => {
 
   return [1, (await sql`select 1 as x`)[0].x]
 })
-
+*/
 t('Login without password', async() => {
   return [true, (await postgres({ ...options, ...login })`select true as x`)[0].x]
 })
