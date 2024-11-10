@@ -174,7 +174,7 @@ export const tls = {
     socket.readyState = 'connecting'
 
     if (typeof options.ca !== 'undefined')
-      options.caCerts = options.caCerts || options.ca
+      options.caCerts = options.caCerts || (Array.isArray(options.ca) ? options.ca : [options.ca])
 
     Deno.startTls(socket.raw, { hostname: socket.hostname, ...options })
       .then(socket.success, socket.error)
