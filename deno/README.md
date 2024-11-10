@@ -9,6 +9,12 @@
 
 <br>
 
+## About The Fork
+
+This is a fork of [postgresjs](https://github.com/porsager/postgres), mainly for minor bug fixes and quick patching. Some of the pending upstream pull requests are already merged here.
+
+Use `npm:postgresjs-patched` for nodejs, and `https://deno.land/x/postgresjs_patched` for deno to use this fork.
+
 ## Getting started
 
 <br>
