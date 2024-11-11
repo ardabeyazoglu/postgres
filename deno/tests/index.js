@@ -385,6 +385,52 @@ t('Fail with proper error on no host', async() =>
   })).code]
 )
 
+t('Connect using SSL', async() =>
+  [true, (await new Promise((resolve, reject) => {
+    postgres({
+      ssl: { rejectUnauthorized: false },
+      idle_timeout
+    })`select 1`.then(() => resolve(true), reject)
+  }))]
+)
+
+t('Connect using SSL require', async() =>
+  [true, (await new Promise((resolve, reject) => {
+    postgres({
+      ssl: 'require',
+      idle_timeout
+    })`select 1`.then(() => resolve(true), reject)
+  }))]
+)
+
+t('Connect using SSL prefer', async() => {
+  await exec('psql', ['-c', 'alter system set ssl=off'])
+  await exec('psql', ['-c', 'select pg_reload_conf()'])
+
+  const sql = postgres({
+    ssl: 'prefer',
+    idle_timeout
+  })
+
+  return [
+    1, (await sql`select 1 as x`)[0].x,
+    await exec('psql', ['-c', 'alter system set ssl=on']),
+    await exec('psql', ['-c', 'select pg_reload_conf()'])
+  ]
+})
+
+t('Reconnect using SSL', { timeout: 2 }, async() => {
+  const sql = postgres({
+    ssl: 'require',
+    idle_timeout: 0.1
+  })
+
+  await sql`select 1`
+  await delay(200)
+
+  return [1, (await sql`select 1 as x`)[0].x]
+})
+
 t('Login without password', async() => {
   return [true, (await postgres({ ...options, ...login })`select true as x`)[0].x]
 })
@@ -2537,4 +2583,4 @@ t('arrays in reserved connection', async() => {
   ]
 })
 
-;globalThis.addEventListener("unload", () => Deno.exit(process.exitCode))
+globalThis.addEventListener('unload', () => Deno.exit(process.exitCode))

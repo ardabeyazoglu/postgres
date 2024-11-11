@@ -26,7 +26,7 @@ Use `npm:postgresjs-patched` for nodejs, and `https://deno.land/x/postgresjs_pat
 Create your `sql` database instance
 ```js
 // db.js
-import postgres from 'https://deno.land/x/postgresjs/mod.js'
+import postgres from 'https://jsr.io/@ardabeyazoglu/postgresjs-patched'
 
 const sql = postgres({ /* options */ }) // will use psql environment variables
 

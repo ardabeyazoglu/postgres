@@ -1,6 +1,7 @@
 import { Buffer } from 'node:buffer'
 import { setImmediate, clearImmediate } from 'node:timers'
-import { net, tls } from '../polyfills.js'
+import net from 'node:net'
+import tls from 'node:tls'
 import crypto from 'node:crypto'
 import Stream from 'node:stream'
 
